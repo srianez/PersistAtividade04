@@ -2,50 +2,56 @@ package br.com.atividade04.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @IdClass(AgendaPacientePK.class)
-@Table(name = "AGENDAPACIENTE", schema = "scjperat04")
-@XmlRootElement
-
+@Table(name = "AGENDAPACIENTE")
+//@XmlRootElement
 public class AgendaPaciente implements Serializable {
+
 
   private static final long serialVersionUID = 1L;
   
 
   @Id
-  @JoinColumn(name="agenda_id", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
-  private Agenda agenda;
+  @Column(name = "agenda_id", nullable = true, insertable=true, updatable=true)
+  private java.lang.Integer agenda;
   
+
   @Id
-  @JoinColumn(name="paciente_cpf", nullable = true, referencedColumnName = "cpf", insertable=true, updatable=true)
-  private Paciente paciente;
+  @Column(name = "paciente_cpf", nullable = true, insertable=true, updatable=true)
+  private java.lang.String paciente;
   
+
   public AgendaPaciente(){
+	  
   }
 
   
-  public Agenda getAgenda(){
+
+  public java.lang.Integer getAgenda(){
     return this.agenda;
   }
   
 
-  public AgendaPaciente setAgenda(Agenda agenda){
+  public AgendaPaciente setAgenda(java.lang.Integer agenda){
     this.agenda = agenda;
     return this;
   }
   
-  public Paciente getPaciente(){
+
+  public java.lang.String getPaciente(){
     return this.paciente;
   }
   
-  public AgendaPaciente setPaciente(Paciente paciente){
+
+  public AgendaPaciente setPaciente(java.lang.String paciente){
     this.paciente = paciente;
     return this;
   }
@@ -61,6 +67,7 @@ public class AgendaPaciente implements Serializable {
     return true;
   }
   
+
   @Override
   public int hashCode() {
     int result = 1;

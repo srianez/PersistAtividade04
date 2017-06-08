@@ -8,15 +8,20 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class AgendaPacientePK implements Serializable {
 
+
   private static final long serialVersionUID = 1L;
   
+
   @Column(name = "agenda_id", insertable=true, updatable=true)
   private java.lang.Integer agenda;
   
+
   @Column(name = "paciente_cpf", insertable=true, updatable=true)
   private java.lang.String paciente;
   
+
   public AgendaPacientePK(){
+	  
   }
   
 
@@ -24,6 +29,7 @@ public class AgendaPacientePK implements Serializable {
     return this.agenda;
   }
   
+
   public AgendaPacientePK setAgenda(java.lang.Integer agenda){
     this.agenda = agenda;
     return this;
@@ -50,6 +56,7 @@ public class AgendaPacientePK implements Serializable {
     return true;
   }
   
+
   @Override
   public int hashCode() {
     int result = 1;

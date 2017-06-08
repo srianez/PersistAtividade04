@@ -1,7 +1,6 @@
 package br.com.atividade04.entity;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,77 +8,90 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "AGENDA", schema = "scjperat04")
-
+@Table(name = "AGENDA", uniqueConstraints = @UniqueConstraint(columnNames = { "id" }))
+//@XmlRootElement
 public class Agenda implements Serializable {
 
- 
-  private static final long serialVersionUID = 1L;
- 
+	private static final long serialVersionUID = 1L;
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id", nullable = false, length=11)
-  private int id;
-  
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@Column(name = "id", nullable = false, length = 11)
+	private java.lang.Integer id;
 
-  @Column(name = "data", nullable = false)
-  private Date data;
-  
+	@Temporal(TemporalType.DATE)
+	@Column(name = "data", nullable = false)
+	private java.util.Date data;
 
-  @Column(name = "hora", nullable = false)
-  private Date hora;
-  
-  
-  @Column(name = "descricao", nullable = true, unique = false, length=45)
-  private String descricao;
-  
+	@Temporal(TemporalType.DATE)
+	@Column(name = "hora", nullable = false)
+	private java.util.Date hora;
 
-  public Agenda(){
-  }
+	@Column(name = "descricao", nullable = true, length = 45)
+	private java.lang.String descricao;
 
+	public Agenda() {
+		
+	}
 
-public int getId() {
-	return id;
-}
+	public java.lang.Integer getId() {
+		return this.id;
+	}
 
 
-public void setId(int id) {
-	this.id = id;
-}
+	public java.util.Date getData() {
+		return this.data;
+	}
+
+	public Agenda setData(java.util.Date data) {
+		this.data = data;
+		return this;
+	}
+
+	public java.util.Date getHora() {
+		return this.hora;
+	}
+
+	public Agenda setHora(java.util.Date hora) {
+		this.hora = hora;
+		return this;
+	}
 
 
-public Date getData() {
-	return data;
-}
+	public java.lang.String getDescricao() {
+		return this.descricao;
+	}
+
+	public Agenda setDescricao(java.lang.String descricao) {
+		this.descricao = descricao;
+		return this;
+	}
 
 
-public void setData(Date data) {
-	this.data = data;
-}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null || getClass() != obj.getClass())
+			return false;
+		Agenda object = (Agenda) obj;
+		if (id != null ? !id.equals(object.id) : object.id != null)
+			return false;
+		return true;
+	}
 
 
-public Date getHora() {
-	return hora;
-}
+	@Override
+	public int hashCode() {
+		int result = 1;
+		result = 31 * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
-
-public void setHora(Date hora) {
-	this.hora = hora;
-}
-
-
-public String getDescricao() {
-	return descricao;
-}
-
-
-public void setDescricao(String descricao) {
-	this.descricao = descricao;
-}
-
-  
 }

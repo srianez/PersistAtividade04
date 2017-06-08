@@ -7,13 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Classe que representa a tabela PROCEDIMENTO
+ */
 @Entity
-@Table(name = "PROCEDIMENTO", schema = "scjperat04")
-
+@Table(name = "PROCEDIMENTO")
+@XmlRootElement
 public class Procedimento implements Serializable {
 
 
@@ -21,64 +23,80 @@ public class Procedimento implements Serializable {
   
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY) 
-  @Column(name = "id", nullable = false, length=11)
-  private int id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id", nullable = false, length=11, insertable=true, updatable=true)
+  private java.lang.Integer id;
   
-  @Column(name = "descricao", nullable = false, length=45)
-  private String descricao;
+ 
+  @Column(name = "descricao", nullable = false, unique = false, length=45, insertable=true, updatable=true)
+  private java.lang.String descricao;
   
-  @Column(name = "preco", nullable = false)
-  private Double preco;
+ 
+  @Column(name = "preco", nullable = false, unique = false, insertable=true, updatable=true)
+  private java.lang.Double preco;
   
-  @ManyToOne
-  @JoinColumn(name="cpf_paciente", nullable = false, referencedColumnName = "cpf")
-  private Paciente paciente;
+ 
+  @Column(name = "cpf_paciente", nullable = false, unique = false, insertable=true, updatable=true)
+  private java.lang.String paciente;
   
+
   public Procedimento(){
-	  
   }
 
   
-  public int getId(){
+  public java.lang.Integer getId(){
     return this.id;
   }
   
-  public Procedimento setId(int id){
-    this.id = id;
-    return this;
-  }
-  
 
-  public String getDescricao(){
+  public java.lang.String getDescricao(){
     return this.descricao;
   }
   
-  public Procedimento setDescricao(String descricao){
+
+  public Procedimento setDescricao(java.lang.String descricao){
     this.descricao = descricao;
     return this;
   }
   
-
-  public Double getPreco(){
+ 
+  public java.lang.Double getPreco(){
     return this.preco;
   }
   
-  public Procedimento setPreco(Double preco){
+
+  public Procedimento setPreco(java.lang.Double preco){
     this.preco = preco;
     return this;
   }
   
 
-  public Paciente getPaciente(){
+  public java.lang.String getPaciente(){
     return this.paciente;
   }
   
 
-  public Procedimento setPaciente(Paciente paciente){
+  public Procedimento setPaciente(java.lang.String paciente){
     this.paciente = paciente;
     return this;
   }
   
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Procedimento object = (Procedimento)obj;
+    if (id != null ? !id.equals(object.id) : object.id != null) return false;
+    return true;
+  }
+  
+
+  @Override
+  public int hashCode() {
+    int result = 1;
+    result = 31 * result + ((id == null) ? 0 : id.hashCode());
+    return result;
+  }
   
 }
