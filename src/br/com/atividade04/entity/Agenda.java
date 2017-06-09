@@ -29,7 +29,7 @@ public class Agenda implements Serializable {
 	@Column(name = "data", nullable = false)
 	private java.util.Date data;
 
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIME)
 	@Column(name = "hora", nullable = false)
 	private java.util.Date hora;
 
