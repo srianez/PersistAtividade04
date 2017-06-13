@@ -4,11 +4,15 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * Classe que representa a tabela MATMED
@@ -33,9 +37,14 @@ public class Matmed implements Serializable {
 	@Column(name = "fabricante", nullable = true, unique = false, length = 45, insertable = true, updatable = true)
 	private java.lang.String fabricante;
 
-	@Column(name = "cpfpac", nullable = true, unique = false, insertable = true, updatable = true)
-	private java.lang.String paciente;
+//	@Column(name = "cpfpac", nullable = true, unique = false, insertable = false, updatable = false)
+//	private java.lang.String cpfpac;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cpfpac")
+	private Paciente paciente;	
+	
+	
 	public Matmed() {
 	}
 
@@ -70,13 +79,17 @@ public class Matmed implements Serializable {
 		return this;
 	}
 
-	public java.lang.String getPaciente() {
-		return this.paciente;
+	public Paciente getPaciente() {
+		return paciente;
 	}
 
-	public Matmed setPaciente(java.lang.String paciente) {
+	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
-		return this;
 	}
+
+	public void setId(java.lang.Integer id) {
+		this.id = id;
+	}
+
 
 }
