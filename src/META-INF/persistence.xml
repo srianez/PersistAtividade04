@@ -8,8 +8,6 @@
 		<class>br.com.atividade04.entity.Paciente</class>
 		<class>br.com.atividade04.entity.Procedimento</class>
 		<class>br.com.atividade04.entity.Matmed</class>
-		<class>br.com.atividade04.entity.AgendaPaciente</class>
-		<class>br.com.atividade04.entity.AgendaPacientePK</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/scjperat04" />

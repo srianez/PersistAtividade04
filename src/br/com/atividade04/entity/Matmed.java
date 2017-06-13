@@ -12,107 +12,71 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Classe que representa a tabela MATMED
- * @generated
  */
 @Entity
 @Table(name = "MATMED")
-@XmlRootElement
 public class Matmed implements Serializable {
 
+	private static final long serialVersionUID = 1L;
 
-  private static final long serialVersionUID = 1L;
-  
- 
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id", nullable = false, length=11, insertable=true, updatable=true)
-  private java.lang.Integer id;
-  
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false, length = 11, insertable = true, updatable = true)
+	private java.lang.Integer id;
 
-  @Column(name = "descricao", nullable = false, unique = false, length=45, insertable=true, updatable=true)
-  private java.lang.String descricao;
-  
- 
-  @Column(name = "preco", nullable = false, unique = false, insertable=true, updatable=true)
-  private java.lang.Double preco;
-  
- 
-  @Column(name = "fabricante", nullable = true, unique = false, length=45, insertable=true, updatable=true)
-  private java.lang.String fabricante;
-  
+	@Column(name = "descricao", nullable = false, unique = false, length = 45, insertable = true, updatable = true)
+	private java.lang.String descricao;
 
-  @Column(name = "cpfpac", nullable = true, unique = false, insertable=true, updatable=true)
-  private java.lang.String paciente;
-  
- 
-  public Matmed(){
-  }
+	@Column(name = "preco", nullable = false, unique = false, insertable = true, updatable = true)
+	private java.lang.Double preco;
 
+	@Column(name = "fabricante", nullable = true, unique = false, length = 45, insertable = true, updatable = true)
+	private java.lang.String fabricante;
 
-  public java.lang.Integer getId(){
-    return this.id;
-  }
+	@Column(name = "cpfpac", nullable = true, unique = false, insertable = true, updatable = true)
+	private java.lang.String paciente;
 
+	public Matmed() {
+	}
 
-  public java.lang.String getDescricao(){
-    return this.descricao;
-  }
-  
+	public java.lang.Integer getId() {
+		return this.id;
+	}
 
-  public Matmed setDescricao(java.lang.String descricao){
-    this.descricao = descricao;
-    return this;
-  }
-  
- 
-  public java.lang.Double getPreco(){
-    return this.preco;
-  }
-  
+	public java.lang.String getDescricao() {
+		return this.descricao;
+	}
 
-  public Matmed setPreco(java.lang.Double preco){
-    this.preco = preco;
-    return this;
-  }
-  
+	public Matmed setDescricao(java.lang.String descricao) {
+		this.descricao = descricao;
+		return this;
+	}
 
-  public java.lang.String getFabricante(){
-    return this.fabricante;
-  }
-  
+	public java.lang.Double getPreco() {
+		return this.preco;
+	}
 
-  public Matmed setFabricante(java.lang.String fabricante){
-    this.fabricante = fabricante;
-    return this;
-  }
-  
+	public Matmed setPreco(java.lang.Double preco) {
+		this.preco = preco;
+		return this;
+	}
 
-  public java.lang.String getPaciente(){
-    return this.paciente;
-  }
-  
+	public java.lang.String getFabricante() {
+		return this.fabricante;
+	}
 
-  public Matmed setPaciente(java.lang.String paciente){
-    this.paciente = paciente;
-    return this;
-  }
-  
+	public Matmed setFabricante(java.lang.String fabricante) {
+		this.fabricante = fabricante;
+		return this;
+	}
 
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj) return true;
-    if (obj == null || getClass() != obj.getClass()) return false;
-    Matmed object = (Matmed)obj;
-    if (id != null ? !id.equals(object.id) : object.id != null) return false;
-    return true;
-  }
-  
+	public java.lang.String getPaciente() {
+		return this.paciente;
+	}
 
-  @Override
-  public int hashCode() {
-    int result = 1;
-    result = 31 * result + ((id == null) ? 0 : id.hashCode());
-    return result;
-  }
-  
+	public Matmed setPaciente(java.lang.String paciente) {
+		this.paciente = paciente;
+		return this;
+	}
+
 }
