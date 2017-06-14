@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Classe que representa a tabela PROCEDIMENTO
@@ -32,9 +31,6 @@ public class Procedimento implements Serializable {
 
 	@Column(name = "preco", nullable = false, unique = false, insertable = true, updatable = true)
 	private java.lang.Double preco;
-
-//	@Column(name = "cpfpac", nullable = false, unique = false, insertable = false, updatable = false)
-//	private java.lang.String cpfpac;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cpfpac")
@@ -64,8 +60,6 @@ public class Procedimento implements Serializable {
 		this.preco = preco;
 		return this;
 	}
-
-
 
 	public Paciente getPaciente() {
 		return paciente;

@@ -2,9 +2,7 @@ package br.com.atividade04.main;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-
 import br.com.atividade04.dao.GenericDao;
 import br.com.atividade04.entity.Agenda;
 import br.com.atividade04.entity.Matmed;
@@ -16,7 +14,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		System.out.println("============ Carregando a tabelas ============");
+		System.out.println("============ Carrega inicial das tabelas ============");
 		prepareData();
 
 		System.out.println("============ Lista dos Pacientes que possuem procedimentos ============");

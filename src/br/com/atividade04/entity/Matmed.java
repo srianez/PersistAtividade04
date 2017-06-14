@@ -11,8 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
-
 
 /**
  * Classe que representa a tabela MATMED
@@ -36,9 +34,6 @@ public class Matmed implements Serializable {
 
 	@Column(name = "fabricante", nullable = true, unique = false, length = 45, insertable = true, updatable = true)
 	private java.lang.String fabricante;
-
-//	@Column(name = "cpfpac", nullable = true, unique = false, insertable = false, updatable = false)
-//	private java.lang.String cpfpac;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "cpfpac")
