@@ -22,8 +22,6 @@ public class Main {
 
 		System.out.println("============ Lista dos Materiais utilizados por paciente  ============");
 		searchPacientesMateriais();
-		
-
 
 	}
 
@@ -129,6 +127,7 @@ public class Main {
 					 procedimento.getDescricao() + " no valor de: " + procedimento.getPreco() );
 		}
 	}
+	
 
 	public static void searchPacientesMateriais() {
 		List<Matmed> query = JpaUtil.getEntityManager()

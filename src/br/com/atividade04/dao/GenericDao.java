@@ -3,7 +3,6 @@ package br.com.atividade04.dao;
 import javax.persistence.EntityManager;
 import br.com.atividade04.utils.JpaUtil;
 
-
 public class GenericDao<T> implements Dao<T> {
 	//classe que controla a persistencia de qualquer classe
 	
