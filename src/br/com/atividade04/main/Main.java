@@ -109,7 +109,7 @@ public class Main {
 		
 		System.out.println("Atualizando Material.");
 		matmed2.setPreco(199.90);
-		daoMatmed.atualizar(matmed);
+		daoMatmed.atualizar(matmed2);
 		
 		System.out.println("Removendo Procedimento.");
 		daoProcedimento3.remover(procedimento3);
