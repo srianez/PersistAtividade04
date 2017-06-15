@@ -15,18 +15,20 @@ public class Main {
 	public static void main(String[] args) {
 
 		System.out.println("============ Carrega inicial das tabelas ============");
-		prepareData();
+		CrudData();
 
 		System.out.println("============ Lista dos Pacientes que possuem procedimentos ============");
 		searchPacientesProcedimentos();
 
 		System.out.println("============ Lista dos Materiais utilizados por paciente  ============");
 		searchPacientesMateriais();
+		
+
 
 	}
 
 	// Carga inicial da estrutura de BD
-	public static void prepareData() {
+	public static void CrudData() {
 
 		Calendar calendar = Calendar.getInstance();
 
@@ -106,6 +108,13 @@ public class Main {
 
 		GenericDao<Matmed> daoMatmed2 = new GenericDao<Matmed>(Matmed.class);
 		daoMatmed2.adicionar(matmed2);
+		
+		System.out.println("Atualizando Material.");
+		matmed2.setPreco(199.90);
+		daoMatmed.atualizar(matmed);
+		
+		System.out.println("Removendo Procedimento.");
+		daoProcedimento3.remover(procedimento3);
 	
 	}
 
