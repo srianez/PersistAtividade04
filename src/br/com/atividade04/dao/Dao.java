@@ -1,7 +1,5 @@
 package br.com.atividade04.dao;
 
-import java.util.List;
-
 public interface Dao<T> {
 	
 	void adicionar(T entidade);

@@ -40,6 +40,5 @@ public class GenericDao<T> implements Dao<T> {
 		em.remove(em.merge(entidade)); //remove
 		em.getTransaction().commit();
 		em.close();
-	}
-	
+	}	
 }
